@@ -22,8 +22,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Instala las dependencias de PHP
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-# Crea el archivo .env a partir de .env.example (necesario para Artisan)
-RUN cp .env.example .env
+# Crea el archivo .env a partir de .env.ejemplo (necesario para Artisan)
+RUN cp .env.ejemplo .env
 
 # Genera la clave de la aplicación
 RUN php artisan key:generate
@@ -36,4 +36,5 @@ EXPOSE 8000
 
 # Comando para iniciar el servidor de Laravel
 CMD ["/bin/sh", "-c", "php artisan config:clear && php artisan serve --host 0.0.0.0 --port 8000"]
+
 
