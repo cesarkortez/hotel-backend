@@ -28,6 +28,9 @@ RUN cp .env.example .env
 # Genera la clave de la aplicación
 RUN php artisan key:generate
 
+# IMPORTANTE: Limpia la caché de configuración
+RUN php artisan config:clear
+
 # Expone el puerto 8000
 EXPOSE 8000
 
